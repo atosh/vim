@@ -161,8 +161,10 @@ NeoBundle "thinca/vim-template"
 autocmd MyAutoCmd User plugin-template-loaded call s:template_keywords()
 function! s:template_keywords()
     silent! %s#<+DATE+>#\=strftime('%Y/%m/%d')#g
+    silent! %s#<+YEAR+>#\=strftime('%Y')#g
     silent! %s/<+FILENAME+>/\=expand('%:t')/g
     silent! %s/<+USERNAME+>/\=expand($USER)/g
+    silent! %s/<+ORGANIZATION+>/\=expand($ORGANIZATION)/g
 endfunction
 " テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
 autocmd MyAutoCmd User plugin-template-loaded
