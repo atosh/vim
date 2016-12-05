@@ -200,7 +200,7 @@ let g:neocomplete#enable_auto_delimiter = 1
 " 1文字目の入力から補完のポップアップを表示
 let g:neocomplete#auto_completion_start_length = 1
 " ユーザー定義スニペット置き場
-let g:neosnippet#snippets_directory = '~/.vim/bundle/neosnippet-snippets/snippets'
+let g:neosnippet#snippets_directory = '~/.vim/snippets'
 " キーマッピング定義
 imap <C-k><C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k><C-k> <Plug>(neosnippet_expand_or_jump)
