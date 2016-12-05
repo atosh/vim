@@ -216,10 +216,10 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#expandable_or_jumpable() ? 
 
 "" clang-format の設定
 " 現在行または選択範囲をフォーマットする.
-map <C-k><C-f> :pyf ~/bin/clang-format.py<cr>
+map <C-k><C-f> :pyf ~/bin/clang-format.py<CR>
 " バッファ全体をフォーマットする.
-nmap <C-k><C-d> gg<S-v><S-g><C-k><C-f>
-"imap <C-k><C-f> <c-o>:pyf ~/bin/clang-format.py<cr>
+nmap <C-k><C-d> mZggVG<C-k><C-f>`Z
+"imap <C-k><C-f> <c-o>:pyf ~/bin/clang-format.py<CR>
 
 " :GuiColorScheme Dusk
 colorscheme molokai
