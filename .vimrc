@@ -55,20 +55,18 @@ syntax on
 set cindent
 "c++のアクセス指定子はインデントしない
 set cinoptions+=g0,N-s
-" { のとじカッコを自動でつける.
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
 
 "" 文字列検索
 " インクリメンタルサーチ. 1文字入力ごとに検索を行う.
 set incsearch
 " 検索パターンに大文字小文字を区別しない
-set ignorecase
+"set ignorecase
 " 検索パターンに大文字を含んでいたら大文字小文字を区別する.
-set smartcase
+"set smartcase
 " 検索結果をハイライトする.
 set hlsearch
-" エスケープキー連打でハイライトを切り替える.
-nnoremap <silent> <Esc><Esc> :<C-u>set nohlsearch!<CR>
+" エスケープキー連打でハイライトを消す.
+"nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "" カーソル
 " カーソルの左右移動で行末から次の行の行頭へ移動する.~
