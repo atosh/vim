@@ -173,6 +173,9 @@ autocmd MyAutoCmd User plugin-template-loaded
     \ |   silent! execute 'normal! "_da>'
     \ | endif
 
+" 変更行にマーク
+NeoBundle 'leftouterjoin/changed'
+
 if has('lua')
     " コードの自動補完
     NeoBundle 'Shougo/neocomplete.vim'
