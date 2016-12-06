@@ -15,6 +15,12 @@ snippet     template
 abbr        template <T>
     template<typename ${1:T}>${0}
 
+snippet ~
+    ~${1:typename}()
+    {
+        ${0}
+    }
+
 snippet     class
 options     head
 abbr        class {}
@@ -22,19 +28,33 @@ abbr        class {}
     public:
         $1();
         ~$1();
+
+    private:
+        ${0}
     };
-    $1::$1() {
-        ${0:TARGET}
+    $1::$1()
+    {
     }
-    $1::~$1() {
+    $1::~$1()
+    {
     }
 
-snippet     class-without-constructor
-options     head
-abbr        class {}
+snippet classi
+options head
     class ${1:#:name} {
-        ${2}
+    public:
+        $1() {}
+        ~$1() {}
+
+    private:
+        ${0}
     };
+
+snippet ctor
+    ${1:#:typename}()
+    {
+        ${0}
+    }
 
 snippet     try
 options     head

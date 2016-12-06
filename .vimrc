@@ -131,7 +131,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " 末尾の全角と半角の空白文字を赤くハイライト
 NeoBundle 'bronson/vim-trailing-whitespace'
 " インデントの可視化
-NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " GUI カラースキームを使えるようにする
 NeoBundle 'thinca/vim-guicolorscheme'
@@ -190,6 +191,15 @@ filetype plugin indent on
 " 未インストールの Vim プラグインがある場合, インストールするか確認する.
 NeoBundleCheck
 
+"" indent-guides の設定
+" 起動時に有効化する.
+let g:indent_guides_enable_on_vim_startup = 1
+" 1列目だけハイライトする.
+let g:indent_guides_guide_size = 1
+" opacity を調整する.
+"let g:indent_guides_color_change_percent = 30
+" 2段目からガイドする.
+let g:indent_guides_start_level = 2
 "" neocomplete/neosnippet の設定
 " Vim起動時にneocompleteを有効にする
 let g:neocomplete#enable_at_startup = 1
@@ -219,7 +229,10 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#expandable_or_jumpable() ? 
 map <C-k><C-f> :pyf ~/bin/clang-format.py<CR>
 " バッファ全体をフォーマットする.
 nmap <C-k><C-d> mZggVG<C-k><C-f>`Z
-"imap <C-k><C-f> <c-o>:pyf ~/bin/clang-format.py<CR>
+" フォーマットファイルを指定
+if $CLANG_FORMAT_FILE != ""
+  let g:clang_format_path_to_config_file = $CLANG_FORMAT_FILE
+endif
 
 " :GuiColorScheme Dusk
 colorscheme molokai
