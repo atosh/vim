@@ -70,7 +70,7 @@ set hlsearch
 
 "" カーソル
 " カーソルの左右移動で行末から次の行の行頭へ移動する.~
-set whichwrap=b,s,h,l,<,>,[,,]
+"set whichwrap=b,s,h,l,<,>,[,,]
 " 行番号を表示
 set number
 " カーソルラインをハイライト
@@ -203,29 +203,31 @@ let g:indent_guides_guide_size = 1
 "let g:indent_guides_color_change_percent = 30
 " 2段目からガイドする.
 let g:indent_guides_start_level = 2
-"" neocomplete/neosnippet の設定
-" Vim起動時にneocompleteを有効にする
-let g:neocomplete#enable_at_startup = 1
-" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete#enable_smart_case = 1
-" 3文字以上の単語に対して補完を有効にする
-let g:neocomplete#min_keyword_length = 3
-" 区切り文字まで補完する
-let g:neocomplete#enable_auto_delimiter = 1
-" 1文字目の入力から補完のポップアップを表示
-let g:neocomplete#auto_completion_start_length = 1
-" ユーザー定義スニペット置き場
-let g:neosnippet#snippets_directory = '~/.vim/snippets'
-" キーマッピング定義
-imap <C-k><C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k><C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k><C-k> <Plug>(neosnippet_expand_target)
-" バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#expandable_or_jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+if !has('win32unix')
+    "" neocomplete/neosnippet の設定
+    " Vim起動時にneocompleteを有効にする
+    let g:neocomplete#enable_at_startup = 1
+    " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+    let g:neocomplete#enable_smart_case = 1
+    " 3文字以上の単語に対して補完を有効にする
+    let g:neocomplete#min_keyword_length = 3
+    " 区切り文字まで補完する
+    let g:neocomplete#enable_auto_delimiter = 1
+    " 1文字目の入力から補完のポップアップを表示
+    let g:neocomplete#auto_completion_start_length = 1
+    " ユーザー定義スニペット置き場
+    let g:neosnippet#snippets_directory = '~/.vim/snippets'
+    " キーマッピング定義
+    imap <C-k><C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k><C-k> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k><C-k> <Plug>(neosnippet_expand_target)
+    " バックスペースで補完のポップアップを閉じる
+    inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+    " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
+    imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+    " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
+    imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#expandable_or_jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+endif
 
 "" clang-format の設定
 " 現在行または選択範囲をフォーマットする.
