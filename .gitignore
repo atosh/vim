@@ -1,3 +1,4 @@
 .vim
 .viminfo
 *.exe
+*.out
