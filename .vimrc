@@ -74,7 +74,7 @@ set hlsearch
 " 行番号を表示
 set number
 " カーソルラインをハイライト
-set cursorline
+" set cursorline
 
 " 行が折り返し表示されていた場合,
 " 行単位ではなく表示行単位でカーソルを移動する.
@@ -135,7 +135,7 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " GUI カラースキームを使えるようにする
-NeoBundle 'thinca/vim-guicolorscheme'
+" NeoBundle 'thinca/vim-guicolorscheme'
 " カラースキームmolokai
 NeoBundle 'tomasr/molokai'
 " カラースキーム Dusk
