@@ -106,7 +106,8 @@ set clipboard+=unnamed
 set nowritebackup
 set nobackup
 " swap ファイルを無効化する
-set noswapfile
+" set noswapfile
+set directory=~/.vim/tmp
 
 "" NeoBundle の設定
 
