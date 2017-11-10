@@ -184,6 +184,10 @@ if has('lua')
     " スニペット集
     NeoBundle 'Shougo/neosnippet-snippets'
 endif
+
+" gtags
+NeoBundle 'vim-scripts/gtags.vim'
+
 " -------- end add plugins
 
 call neobundle#end()
@@ -242,3 +246,9 @@ endif
 " :GuiColorScheme Dusk
 colorscheme molokai
 set t_Co=256  " iTerm2など既に256色環境なら無くても良い
+
+" gtags の設定
+map <C-h> :Gtags -f %<CR>
+map <C-j> :GtagsCursor<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
