@@ -106,8 +106,8 @@ set clipboard+=unnamed
 set nowritebackup
 set nobackup
 " swap ファイルを無効化する
-" set noswapfile
-set directory=~/.vim/tmp
+set noswapfile
+" set directory=~/.vim/tmp
 
 "" NeoBundle の設定
 
@@ -162,20 +162,6 @@ NeoBundle 'tpope/vim-abolish'
 
 " ファイルテンプレート
 NeoBundle "thinca/vim-template"
-" テンプレート中に含まれる特定文字列を置き換える
-autocmd MyAutoCmd User plugin-template-loaded call s:template_keywords()
-function! s:template_keywords()
-    silent! %s#<+DATE+>#\=strftime('%Y/%m/%d')#g
-    silent! %s#<+YEAR+>#\=strftime('%Y')#g
-    silent! %s/<+FILENAME+>/\=expand('%:t')/g
-    silent! %s/<+USERNAME+>/\=expand($USER)/g
-    silent! %s/<+ORGANIZATION+>/\=expand($ORGANIZATION)/g
-endfunction
-" テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
-autocmd MyAutoCmd User plugin-template-loaded
-    \   if search('<+CURSOR+>')
-    \ |   silent! execute 'normal! "_da>'
-    \ | endif
 
 " 変更行にマーク
 NeoBundle 'leftouterjoin/changed'
@@ -250,6 +236,29 @@ endif
 " :GuiColorScheme Dusk
 colorscheme molokai
 set t_Co=256  " iTerm2など既に256色環境なら無くても良い
+
+let s:dir = getcwd()
+let s:ans = findfile(".private.vim", fnameescape(s:dir) . ";")
+
+if len(s:ans) > 1
+    let s:rc = fnamemodify(s:ans, ":p:h") . "/.vimrc"
+    call feedkeys(":source " . s:rc . "\<cr>")
+endif
+
+" テンプレート中に含まれる特定文字列を置き換える
+autocmd MyAutoCmd User plugin-template-loaded call s:template_keywords()
+function! s:template_keywords()
+    silent! %s#<+DATE+>#\=strftime('%Y/%m/%d')#g
+    silent! %s#<+YEAR+>#\=strftime('%Y')#g
+    silent! %s/<+FILENAME+>/\=expand('%:t')/g
+    silent! %s/<+USERNAME+>/\=expand($USER)/g
+    silent! %s/<+ORGANIZATION+>/\=expand($ORGANIZATION)/g
+endfunction
+" テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
+autocmd MyAutoCmd User plugin-template-loaded
+    \   if search('<+CURSOR+>')
+    \ |   silent! execute 'normal! "_da>'
+    \ | endif
 
 " gtags の設定
 map <C-h> :Gtags -f %<CR>
