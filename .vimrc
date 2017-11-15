@@ -128,6 +128,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " add plugins here --------
 
+" plantUML プラグイン
+NeoBundle 'aklt/plantuml-syntax'
+
 " 末尾の全角と半角の空白文字を赤くハイライト
 NeoBundle 'bronson/vim-trailing-whitespace'
 " インデントの可視化
