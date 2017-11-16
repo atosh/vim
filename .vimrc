@@ -251,7 +251,7 @@ function! s:template_keywords()
     silent! %s#<+DATE+>#\=strftime('%Y/%m/%d')#g
     silent! %s#<+YEAR+>#\=strftime('%Y')#g
     silent! %s/<+FILENAME+>/\=expand('%:t')/g
-    silent! %s/<+USERNAME+>/\=expand($USER)/g
+    silent! %s/<+AUTHOR+>/\=expand($AUTHOR)/g
     silent! %s/<+ORGANIZATION+>/\=expand($ORGANIZATION)/g
 endfunction
 " テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動

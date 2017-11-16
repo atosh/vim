@@ -5,5 +5,5 @@
 //! <+ORGANIZATION+>
 //! Copyright(C) <+YEAR+> All Rights Reserved.
 //! @date    <+DATE+>
-//! @author  <+USERNAME+>
+//! @author  <+AUTHOR+>
 //!
