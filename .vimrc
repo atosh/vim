@@ -253,6 +253,7 @@ function! s:template_keywords()
     silent! %s/<+FILENAME+>/\=expand('%:t')/g
     silent! %s/<+AUTHOR+>/\=expand($AUTHOR)/g
     silent! %s/<+ORGANIZATION+>/\=expand($ORGANIZATION)/g
+    silent! %s/<+INCLUDEGUARD+>/\=toupper(expand($NAMESPACE).'_'.expand('%:gs?[\/\.\\]?_?').'_')/g
 endfunction
 " テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
 autocmd MyAutoCmd User plugin-template-loaded
