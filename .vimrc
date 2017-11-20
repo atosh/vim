@@ -164,7 +164,9 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle "thinca/vim-template"
 
 " 変更行にマーク
-NeoBundle 'leftouterjoin/changed'
+if has('unix') && !has('win32unix')
+    NeoBundle 'leftouterjoin/changed'
+endif
 
 if has('lua')
     " コードの自動補完
