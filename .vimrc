@@ -108,6 +108,8 @@ set nobackup
 " swap ファイルを無効化する
 set noswapfile
 " set directory=~/.vim/tmp
+" buffer切替時に保存する? => NO
+set hidden
 
 "" NeoBundle の設定
 
@@ -164,7 +166,9 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle "thinca/vim-template"
 
 " 変更行にマーク
-NeoBundle 'leftouterjoin/changed'
+if !has('gui_running') && has('unix') && !has('win32unix')
+    NeoBundle 'leftouterjoin/changed'
+endif
 
 if has('lua')
     " コードの自動補完
