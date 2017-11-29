@@ -110,6 +110,10 @@ set noswapfile
 " set directory=~/.vim/tmp
 " buffer切替時に保存する? => NO
 set hidden
+" 挿入モードのデフォルト入力を直接入力にする
+set iminsert=0
+" 検索モードのデフォルト入力を挿入モードと同じにする
+set imsearch=-1
 
 "" NeoBundle の設定
 
