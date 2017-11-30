@@ -114,6 +114,10 @@ set hidden
 set iminsert=0
 " 検索モードのデフォルト入力を挿入モードと同じにする
 set imsearch=-1
+" マウスの入力を受け付ける
+set mouse=a
+" Windows でもパス区切りを / にする
+set shellslash
 
 "" NeoBundle の設定
 
