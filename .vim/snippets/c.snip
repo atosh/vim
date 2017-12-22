@@ -33,6 +33,13 @@ abbr        for () {}
         ${0:#:TARGET}
     }
 
+snippet     forr
+options     head
+abbr        for () {}  // reverse
+    for (${1:int} ${2:i} = ${3}; $2 >= ${4:0}; --$2) {
+        ${0:#:TARGET}
+    }
+
 snippet     while
 options     head
 abbr        while () {}

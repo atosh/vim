@@ -193,6 +193,15 @@ NeoBundle 'vim-scripts/gtags.vim'
 " vim-submode
 NeoBundle 'kana/vim-submode'
 
+" Markdown編集とプレビュー
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+" *.mdファイルをハイライト
+au BufRead,BufNewFile *.md set filetype=markdown
+" markdownの折りたたみなし
+let g:vim_markdown_folding_disabled=1
+
 " -------- end add plugins
 
 call neobundle#end()

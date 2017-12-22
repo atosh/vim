@@ -65,6 +65,20 @@ abbr        try catch
         ${3}
     }
 
+snippet     for_cpp
+options     head
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; ++$2) {
+        ${0:#:TARGET}
+    }
+
+snippet     forr_cpp
+options     head
+abbr        for () {}  // reverse
+    for (${1:int} ${2:i} = ${3}; $2 >= ${4:0}; --$2) {
+        ${0:#:TARGET}
+    }
+
 # range based for ( C++11 feature )
 snippet     for_CPP11
 options     head
