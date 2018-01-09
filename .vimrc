@@ -198,9 +198,14 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 " *.mdファイルをハイライト
-au BufRead,BufNewFile *.md set filetype=markdown
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 " markdownの折りたたみなし
 let g:vim_markdown_folding_disabled=1
+" ヘッダーにファイル名を表示しない
+let g:previm_show_header=0
 
 " -------- end add plugins
 
