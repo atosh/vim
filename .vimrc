@@ -108,6 +108,8 @@ set nobackup
 " swap ファイルを無効化する
 set noswapfile
 " set directory=~/.vim/tmp
+" undo ファイルを無効にする
+set noundofile
 " buffer切替時に保存する? => NO
 set hidden
 " 挿入モードのデフォルト入力を直接入力にする
