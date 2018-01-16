@@ -120,6 +120,15 @@ set imsearch=-1
 set mouse=a
 " Windows でもパス区切りを / にする
 set shellslash
+" ファイル変更前とカレントバッファの差分を表示する
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 
 "" NeoBundle の設定
 
